@@ -22,8 +22,18 @@ class CityListViewController: UIViewController {
 
         let url = "http://api.openweathermap.org/data/2.5/weather"
         
-        NetworkManager.shared.makeSimpleRequest(requestMethod: httpGet, withApiUrl: url, params: params, success: { (message) in
+        NetworkManager.shared.makeSimpleRequest(requestMethod: httpGet, withApiUrl: url, params: params, success: { (jsonResponse) in
             
+            if let data = jsonResponse, let weatherData = WeatherData(JSON: data) {
+                
+                print("Response : \(data)")
+                
+                
+                
+            }
+                
+                
+             
             
             
         }) { (error) in

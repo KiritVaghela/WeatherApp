@@ -67,7 +67,7 @@ class NetworkManager {
         return httpRequest
     }
     
-    func makeSimpleRequest(requestMethod:HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping (String) -> Void, failure:@escaping (Error) -> Void )  {
+    func makeSimpleRequest(requestMethod:HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping ([String:Any]?) -> Void, failure:@escaping (Error) -> Void )  {
         
         let httpRequest = httpRequestBuilder(urlString: urlString,requestMethod: requestMethod ,params: params)
         
@@ -79,8 +79,7 @@ class NetworkManager {
             case .success(let data):
                 
                 if dataResponse.response?.statusCode == 200 {
-                    let message = String.init(data: data, encoding: .utf8)!
-                    success(message)
+                    success(NetworkManager.getJsonString(from: data))
                 }else{
                     NetworkManager.parseFailureResponse(for: data, with: failure)
                 }

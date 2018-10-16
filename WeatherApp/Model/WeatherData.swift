@@ -9,9 +9,20 @@
 import Foundation
 import ObjectMapper
 
-class WeatherApp: Mappable {
+class WeatherData: Mappable {
     
+    var id:Int64!
+    var name:String!
+    var cod:Int!
+    var dt:Int64!
+    var base:String!
+    
+    var weather:[Weather]?
     var coord:Coord?
+    var main:Main?
+    var wind:Wind?
+    var clouds:Clouds?
+    var sys:Sys?
     
     //MARK: - Object Mapper
     required init?(map: Map) {
@@ -20,6 +31,20 @@ class WeatherApp: Mappable {
     
     //mapping the json keys with properties
     public func mapping(map: Map) {
-        coord <- map["coord"]
+        
+        id      <- map["id"]
+        name    <- map["name"]
+        cod     <- map["cod"]
+        dt      <- map["dt"]
+        base    <- map["base"]
+        
+        weather <- map["weather"]
+        coord   <- map["coord"]
+        main    <- map["main"]
+        wind    <- map["Wind"]
+        clouds  <- map["clouds"]
+        wind    <- map["wind"]
+        sys     <- map["sys"]
+        
     }
 }

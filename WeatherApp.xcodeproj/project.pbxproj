@@ -17,6 +17,10 @@
 		CB9B04572174B0F7008F35D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9B044B2174B0F7008F35D7 /* Assets.xcassets */; };
 		CB9B04592174B0F7008F35D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9B04502174B0F7008F35D7 /* LaunchScreen.storyboard */; };
 		CB9B045A2174B0F7008F35D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9B04522174B0F7008F35D7 /* Main.storyboard */; };
+		CBA7567B21753F53001AEE14 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7567A21753F53001AEE14 /* Main.swift */; };
+		CBA7567D21754110001AEE14 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7567C21754110001AEE14 /* Wind.swift */; };
+		CBA7567F217541DB001AEE14 /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7567E217541DB001AEE14 /* Clouds.swift */; };
+		CBA7568121754267001AEE14 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7568021754267001AEE14 /* Sys.swift */; };
 		CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E32174CA27009A70E5 /* CityListViewController.swift */; };
 		CBC277E62174CC29009A70E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E52174CC29009A70E5 /* Constants.swift */; };
 		CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E82174CFE6009A70E5 /* NetworkManager.swift */; };
@@ -49,6 +53,10 @@
 		CB9B044D2174B0F7008F35D7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB9B04512174B0F7008F35D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB9B04532174B0F7008F35D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBA7567A21753F53001AEE14 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		CBA7567C21754110001AEE14 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
+		CBA7567E217541DB001AEE14 /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
+		CBA7568021754267001AEE14 /* Sys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
 		CBC277E32174CA27009A70E5 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		CBC277E52174CC29009A70E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CBC277E82174CFE6009A70E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -151,9 +159,13 @@
 		CB9B04492174B0F7008F35D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CB7611BB217503AF000832E6 /* Weather.swift */,
-				CB6D11702175287500B39C8D /* Coord.swift */,
 				CB6D116E2175280400B39C8D /* WeatherData.swift */,
+				CBA7568021754267001AEE14 /* Sys.swift */,
+				CB6D11702175287500B39C8D /* Coord.swift */,
+				CB7611BB217503AF000832E6 /* Weather.swift */,
+				CBA7567A21753F53001AEE14 /* Main.swift */,
+				CBA7567C21754110001AEE14 /* Wind.swift */,
+				CBA7567E217541DB001AEE14 /* Clouds.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,11 +392,15 @@
 			files = (
 				CB6D11712175287500B39C8D /* Coord.swift in Sources */,
 				CB7611BC217503AF000832E6 /* Weather.swift in Sources */,
+				CBA7567D21754110001AEE14 /* Wind.swift in Sources */,
+				CBA7567B21753F53001AEE14 /* Main.swift in Sources */,
 				CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */,
+				CBA7568121754267001AEE14 /* Sys.swift in Sources */,
 				CB9B04562174B0F7008F35D7 /* AppDelegate.swift in Sources */,
 				CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */,
 				CB6D116F2175280400B39C8D /* WeatherData.swift in Sources */,
 				CBC277E62174CC29009A70E5 /* Constants.swift in Sources */,
+				CBA7567F217541DB001AEE14 /* Clouds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
