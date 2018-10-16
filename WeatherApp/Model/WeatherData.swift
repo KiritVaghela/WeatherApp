@@ -24,12 +24,6 @@ class WeatherData: BaseResponse {
     var clouds:Clouds?
     var sys:Sys?
     
-    
-    //MARK: - Object Mapper
-    required init?(map: Map) {
-        
-    }
-    
     //mapping the json keys with properties
     public override func mapping(map: Map) {
         super.mapping(map: map)

@@ -11,8 +11,8 @@ import ObjectMapper
 
 class BaseResponse: Mappable {
     
-    var status:Int = 0
-    var message: String = ""
+    var statusCode:Int = 0
+    var responseMessage: String = ""
     
     //MARK: - Object Mapper
     required init?(map: Map) {
@@ -21,7 +21,7 @@ class BaseResponse: Mappable {
     
     //mapping the json keys with properties
     public func mapping(map: Map) {
-        status  <- map["cod"]
-        message <- map["message"]
+        statusCode      <- map["cod"]
+        responseMessage <- map["message"]
     }
 }

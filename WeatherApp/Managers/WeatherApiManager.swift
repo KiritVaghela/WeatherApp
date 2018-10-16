@@ -38,6 +38,8 @@ class WeatherApiManager {
             //check the response
             if response.response?.statusCode == 200 {
                 success(responseObject)
+            }else{
+                failure(NSError(domain: keyDomain, code: responseObject.statusCode , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
             }
             
         }) { (error) in
