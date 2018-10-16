@@ -67,6 +67,7 @@ class NetworkManager {
         return httpRequest
     }
     
+    /// Make simple http request
     func makeSimpleRequest(requestMethod:HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping ([String:Any]?) -> Void, failure:@escaping (Error) -> Void )  {
         
         let httpRequest = httpRequestBuilder(urlString: urlString,requestMethod: requestMethod ,params: params)
@@ -88,6 +89,25 @@ class NetworkManager {
                 self.handleError(forRequest: httpRequest, error: error, with: dataResponse.data!, failure: failure)
             }
             
+        }
+    }
+    
+    /// Generic request for json object response
+    func makeObjectRequest<T:BaseMappable>(forClass: T.Type, requestMethod: HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping (DataResponse<T>) -> Void, failure:@escaping (Error) -> Void )  {
+        
+        let httpRequest = httpRequestBuilder(urlString: urlString,requestMethod: requestMethod,params: params)
+        
+        httpRequest.responseObject { (response:DataResponse<T>) in
+            print("\(Date())Response: \(response)")
+            
+            switch response.result {
+                
+            case .success:
+                success(response)
+                
+            case .failure(let error):
+                self.handleError(forRequest: httpRequest, error: error, with: response.data!, failure: failure)
+            }
         }
     }
     

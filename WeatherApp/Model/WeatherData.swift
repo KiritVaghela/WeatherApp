@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class WeatherData: Mappable {
+class WeatherData: BaseResponse {
     
     var id:Int64!
     var name:String!
@@ -24,13 +24,15 @@ class WeatherData: Mappable {
     var clouds:Clouds?
     var sys:Sys?
     
+    
     //MARK: - Object Mapper
     required init?(map: Map) {
         
     }
     
     //mapping the json keys with properties
-    public func mapping(map: Map) {
+    public override func mapping(map: Map) {
+        super.mapping(map: map)
         
         id      <- map["id"]
         name    <- map["name"]

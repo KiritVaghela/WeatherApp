@@ -14,30 +14,11 @@ class CityListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var params = [String:Any]()
-        params["lat"] = "0"
-        params["lon"] = "0"
-        params["appid"] = "c6e381d8c7ff98f0fee43775817cf6ad"
-        params["units"] = "metric"
-
-        let url = "http://api.openweathermap.org/data/2.5/weather"
-        
-        NetworkManager.shared.makeSimpleRequest(requestMethod: httpGet, withApiUrl: url, params: params, success: { (jsonResponse) in
-            
-            if let data = jsonResponse, let weatherData = WeatherData(JSON: data) {
-                
-                print("Response : \(data)")
-                
-                
-                
-            }
-                
-                
-             
-            
-            
+     
+        WeatherApiManager.shared.getWeatherData(forLatitude: "0", longitude: "0", success: { (weatherData) in
+            print(weatherData.toJSONString(prettyPrint: true))
         }) { (error) in
-            print(error)
+            print(error.localizedDescription)
         }
     }
 
