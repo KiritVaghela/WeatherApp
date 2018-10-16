@@ -24,6 +24,9 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
+    // base url for api
+    private let baseUrl = "http://api.openweathermap.org/data/2.5/"
+    
     /// A closure executed when the request is success
     public typealias SuccessBlock = (_ successMessage:String) -> Void
     
@@ -42,9 +45,14 @@ class NetworkManager {
         print("\(Date()) Url: \(newUrl)")
         print("Params: \(params)")
         
+        
+        //add default params
+        var newParams = params
+        newParams["appid"] = "c6e381d8c7ff98f0fee43775817cf6ad"
+        
         let httpRequest = Alamofire.request(newUrl,
                                                  method: requestMethod,
-                                                 parameters: params,
+                                                 parameters: newParams,
                                                  encoding: requestMethod == .get ? URLEncoding.default : JSONEncoding.default,
                                                  headers: nil)
         
@@ -68,9 +76,11 @@ class NetworkManager {
     }
     
     /// Make simple http request
-    func makeSimpleRequest(requestMethod:HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping ([String:Any]?) -> Void, failure:@escaping (Error) -> Void )  {
+    func makeSimpleRequest(requestMethod:HTTPMethod, forApi name:String, params:[String:Any], success:@escaping ([String:Any]?) -> Void, failure:@escaping (Error) -> Void )  {
         
-        let httpRequest = httpRequestBuilder(urlString: urlString,requestMethod: requestMethod ,params: params)
+        let apiUrl = baseUrl + name
+        
+        let httpRequest = httpRequestBuilder(urlString: apiUrl, requestMethod: requestMethod, params: params)
         
         httpRequest.responseData { (dataResponse) in
             print("\(Date())Response is data")
@@ -93,9 +103,11 @@ class NetworkManager {
     }
     
     /// Generic request for json object response
-    func makeObjectRequest<T:BaseMappable>(forClass: T.Type, requestMethod: HTTPMethod, withApiUrl urlString:String, params:[String:Any], success:@escaping (DataResponse<T>) -> Void, failure:@escaping (Error) -> Void )  {
+    func makeObjectRequest<T:BaseMappable>(forClass: T.Type, requestMethod: HTTPMethod, forApi name:String, params:[String:Any], success:@escaping (DataResponse<T>) -> Void, failure:@escaping (Error) -> Void )  {
         
-        let httpRequest = httpRequestBuilder(urlString: urlString,requestMethod: requestMethod,params: params)
+        let apiUrl = baseUrl + name
+        
+        let httpRequest = httpRequestBuilder(urlString: apiUrl,requestMethod: requestMethod,params: params)
         
         httpRequest.responseObject { (response:DataResponse<T>) in
             print("\(Date())Response: \(response)")

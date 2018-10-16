@@ -11,13 +11,14 @@ import ObjectMapper
 
 class Main: Mappable {
     
-    var temp:Float!
-    var pressure:Float!
-    var humidity: Int!
-    var temp_min:Float!
-    var temp_max:Float!
-    var sea_level:Float!
-    var grnd_level:Float!
+    var temp:Float?
+    var pressure:Float?
+    var humidity: Int?
+    var temp_min:Float?
+    var temp_max:Float?
+    var sea_level:Float?
+    var grnd_level:Float?
+    var temp_kf:Int?
     
     //MARK: - Object Mapper
     required init?(map: Map) {
@@ -33,6 +34,7 @@ class Main: Mappable {
         temp_max        <- map["temp_max"]
         sea_level       <- map["sea_level"]
         grnd_level      <- map["grnd_level"]
+        temp_kf         <- map["temp_kf"]
     }
     
 }

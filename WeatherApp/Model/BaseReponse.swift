@@ -11,8 +11,8 @@ import ObjectMapper
 
 class BaseResponse: Mappable {
     
-    var statusCode:Int = 0
-    var responseMessage: String = ""
+    var statusCode:Int?
+    var responseMessage: String?
     
     //MARK: - Object Mapper
     required init?(map: Map) {

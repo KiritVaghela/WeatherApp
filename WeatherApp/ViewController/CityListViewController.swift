@@ -15,7 +15,7 @@ class CityListViewController: UIViewController {
 
         // Do any additional setup after loading the view.
      
-        WeatherApiManager.shared.getWeatherData(forLatitude: "0", longitude: "0", success: { (weatherData) in
+        WeatherApiManager.shared.getFiveDayForeCast(forLatitude: "23.0419471", longitude: "72.5357644", success: { (weatherData) in
             print(weatherData.toJSONString(prettyPrint: true))
         }) { (error) in
             print(error.localizedDescription)

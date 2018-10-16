@@ -11,8 +11,8 @@ import ObjectMapper
 
 class Wind: Mappable {
     
-    var speed:Float!
-    var deg:Float!
+    var speed:Float?
+    var deg:Float?
     
     //MARK: - Object Mapper
     required init?(map: Map) {

@@ -11,9 +11,10 @@ import ObjectMapper
 
 class Sys: Mappable {
     
-    var message:Float!
-    var sunrise:Int64!
-    var sunset:Int64!
+    var message:Float?
+    var sunrise:Int64?
+    var sunset:Int64?
+    var pod:String?
     
     //MARK: - Object Mapper
     required init?(map: Map) {
@@ -25,6 +26,7 @@ class Sys: Mappable {
         message   <- map["message"]
         sunrise   <- map["sunrise"]
         sunset    <- map["sunrise"]
+        pod       <- map["pod"]
     }
     
 }

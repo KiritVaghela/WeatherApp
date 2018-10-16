@@ -11,11 +11,11 @@ import ObjectMapper
 
 class WeatherData: BaseResponse {
     
-    var id:Int64!
-    var name:String!
-    var cod:Int!
-    var dt:Int64!
-    var base:String!
+    var id:Int64?
+    var name:String?
+    var cod:Int?
+    var dt:Int64?
+    var base:String?
     
     var weather:[Weather]?
     var coord:Coord?
@@ -23,6 +23,7 @@ class WeatherData: BaseResponse {
     var wind:Wind?
     var clouds:Clouds?
     var sys:Sys?
+    var dt_text:Date?
     
     //mapping the json keys with properties
     public override func mapping(map: Map) {
@@ -41,6 +42,7 @@ class WeatherData: BaseResponse {
         clouds  <- map["clouds"]
         wind    <- map["wind"]
         sys     <- map["sys"]
+        dt_text <- (map["dt"], DateTransform())
         
     }
 }

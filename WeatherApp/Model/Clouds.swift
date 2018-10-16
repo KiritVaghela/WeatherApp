@@ -10,7 +10,7 @@ import ObjectMapper
 
 class Clouds: Mappable {
     
-    var all:Int!
+    var all:Int?
     
     //MARK: - Object Mapper
     required init?(map: Map) {

@@ -19,33 +19,53 @@ class WeatherApiManager {
     }
     
     // get weather data for provided latitude and longitude
-    func getWeatherData(forLatitude lat:String, longitude lng:String, unitType unit:String = "metric", success:@escaping (WeatherData) -> Void, failure:@escaping (Error) -> Void) {
+    func getWeatherData(forLatitude lat:String, longitude lng:String, unitType units:String = "metric", success:@escaping (WeatherData) -> Void, failure:@escaping (Error) -> Void) {
         
         var params = [String:Any]()
         params["lat"] = lat
         params["lon"] = lng
-        params["appid"] = "c6e381d8c7ff98f0fee43775817cf6a"
-        params["units"] = unit
+        params["units"] = units
         
-        let url = "http://api.openweathermap.org/data/2.5/weather"
-        
-        NetworkManager.shared.makeObjectRequest(forClass: WeatherData.self, requestMethod: httpGet, withApiUrl: url, params: params, success: { (response) in
+        NetworkManager.shared.makeObjectRequest(forClass: WeatherData.self, requestMethod: httpGet, forApi: "weather", params: params, success: { (response) in
             
             let responseObject = response.result.value!
-            
-            print("Response: \(responseObject)")
             
             //check the response
             if response.response?.statusCode == 200 {
                 success(responseObject)
             }else{
-                failure(NSError(domain: keyDomain, code: responseObject.statusCode , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
+                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
             }
             
         }) { (error) in
             
             failure(error)
         }
+    }
+    
+    func getFiveDayForeCast(forLatitude lat:String, longitude lng:String, unitType units:String = "metric", success:@escaping (FiveDayForeCastData) -> Void, failure:@escaping (Error) -> Void) {
+        
+        var params = [String:Any]()
+        params["lat"] = lat
+        params["lon"] = lng
+        params["units"] = units
+        
+        NetworkManager.shared.makeObjectRequest(forClass: FiveDayForeCastData.self, requestMethod: httpGet, forApi: "forecast", params: params, success: { (response) in
+            
+            let responseObject = response.result.value!
+            
+            //check the response
+            if response.response?.statusCode == 200 {
+                success(responseObject)
+            }else{
+                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
+            }
+            
+        }) { (error) in
+            
+            failure(error)
+        }
+        
     }
     
     

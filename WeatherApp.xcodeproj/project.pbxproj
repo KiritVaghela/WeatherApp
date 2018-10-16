@@ -24,6 +24,8 @@
 		CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E32174CA27009A70E5 /* CityListViewController.swift */; };
 		CBC277E62174CC29009A70E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E52174CC29009A70E5 /* Constants.swift */; };
 		CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E82174CFE6009A70E5 /* NetworkManager.swift */; };
+		CBE251EE21769596005FD031 /* FiveDayForeCastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE251ED21769596005FD031 /* FiveDayForeCastData.swift */; };
+		CBE251F0217696FF005FD031 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE251EF217696FF005FD031 /* City.swift */; };
 		CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AB21767939005FFF57 /* WeatherApiManager.swift */; };
 		CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AD21767DCF005FFF57 /* BaseReponse.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		CBC277E32174CA27009A70E5 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		CBC277E52174CC29009A70E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CBC277E82174CFE6009A70E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CBE251ED21769596005FD031 /* FiveDayForeCastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayForeCastData.swift; sourceTree = "<group>"; };
+		CBE251EF217696FF005FD031 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		CBF480AB21767939005FFF57 /* WeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiManager.swift; sourceTree = "<group>"; };
 		CBF480AD21767DCF005FFF57 /* BaseReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReponse.swift; sourceTree = "<group>"; };
 		D12C842D3F4134E9C21F7C8F /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				CB6D116E2175280400B39C8D /* WeatherData.swift */,
+				CBE251ED21769596005FD031 /* FiveDayForeCastData.swift */,
+				CBE251EF217696FF005FD031 /* City.swift */,
 				CBA7568021754267001AEE14 /* Sys.swift */,
 				CB6D11702175287500B39C8D /* Coord.swift */,
 				CB7611BB217503AF000832E6 /* Weather.swift */,
@@ -405,7 +411,9 @@
 				CB9B04562174B0F7008F35D7 /* AppDelegate.swift in Sources */,
 				CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */,
 				CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */,
+				CBE251EE21769596005FD031 /* FiveDayForeCastData.swift in Sources */,
 				CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */,
+				CBE251F0217696FF005FD031 /* City.swift in Sources */,
 				CB6D116F2175280400B39C8D /* WeatherData.swift in Sources */,
 				CBC277E62174CC29009A70E5 /* Constants.swift in Sources */,
 				CBA7567F217541DB001AEE14 /* Clouds.swift in Sources */,

@@ -11,8 +11,8 @@ import ObjectMapper
 
 class Coord: Mappable {
 
-    var lon:Int64 = 0
-    var lat:Int64 = 0
+    var lon:Int64?
+    var lat:Int64?
     
     var weather:[Weather]?
     
