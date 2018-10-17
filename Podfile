@@ -12,9 +12,9 @@ target 'WeatherApp' do
     # json response parsing
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
-
-    # RelamSwift for database
-    pod 'RealmSwift'
+    
+    pod 'LocationPickerViewController'
+    pod 'SVProgressHUD'
 
   target 'WeatherAppTests' do
     inherit! :search_paths

@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
-import RealmSwift
 
 let keyStatus = "status"
 let keyMessage = "message"
@@ -23,9 +22,6 @@ let httpPost = HTTPMethod.post
 class NetworkManager {
     
     static let shared = NetworkManager()
-    
-    // base url for api
-    private let baseUrl = "http://api.openweathermap.org/data/2.5/"
     
     /// A closure executed when the request is success
     public typealias SuccessBlock = (_ successMessage:String) -> Void
@@ -48,7 +44,7 @@ class NetworkManager {
         
         //add default params
         var newParams = params
-        newParams["appid"] = "c6e381d8c7ff98f0fee43775817cf6ad"
+        newParams["appid"] = WEATHER_API_KEY
         
         let httpRequest = Alamofire.request(newUrl,
                                                  method: requestMethod,
@@ -78,7 +74,7 @@ class NetworkManager {
     /// Make simple http request
     func makeSimpleRequest(requestMethod:HTTPMethod, forApi name:String, params:[String:Any], success:@escaping ([String:Any]?) -> Void, failure:@escaping (Error) -> Void )  {
         
-        let apiUrl = baseUrl + name
+        let apiUrl = BASE_URL + name
         
         let httpRequest = httpRequestBuilder(urlString: apiUrl, requestMethod: requestMethod, params: params)
         
@@ -105,7 +101,7 @@ class NetworkManager {
     /// Generic request for json object response
     func makeObjectRequest<T:BaseMappable>(forClass: T.Type, requestMethod: HTTPMethod, forApi name:String, params:[String:Any], success:@escaping (DataResponse<T>) -> Void, failure:@escaping (Error) -> Void )  {
         
-        let apiUrl = baseUrl + name
+        let apiUrl = BASE_URL + name
         
         let httpRequest = httpRequestBuilder(urlString: apiUrl,requestMethod: requestMethod,params: params)
         
