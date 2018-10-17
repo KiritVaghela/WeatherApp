@@ -115,4 +115,32 @@ extension CityListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let cell = tableViewCityList.cellForRow(at: indexPath) as? CityListTableViewCell, let _ = cell.weatherData {
+            self.performSegue(withIdentifier: "toForeCastScreen", sender: indexPath)
+        }
+    }
+}
+
+
+extension CityListViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toForeCastScreen" {
+            
+            if let indexPath = sender as? IndexPath {
+                
+                let location = BookmarkManager.shared.getLoctions()[indexPath.row]
+                if let forecaseScreen = segue.destination as? ForeCastViewController {
+                    forecaseScreen.location = location
+                    forecaseScreen.showFarhreneit = self.btnFahrenheit.isSelected
+                    let cell = tableViewCityList.cellForRow(at: indexPath) as! CityListTableViewCell
+                    forecaseScreen.weatherData = cell.weatherData
+                }
+            }
+        }
+    }
 }
