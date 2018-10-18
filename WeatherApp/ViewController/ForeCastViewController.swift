@@ -12,9 +12,10 @@ class ForeCastViewController: UIViewController {
 
     var location:Location!
     var foreCastData: FiveDayForeCastData?
+    var arrayDayForeCast:[DayForeCast] = Array<DayForeCast>()
     
     @IBOutlet weak var collectionViewForeCast: UICollectionView!
-    
+    @IBOutlet weak var tableViewDayForeCast: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,35 @@ class ForeCastViewController: UIViewController {
             
             self.collectionViewForeCast.reloadData()
             
+            
+            let dataFormatter = DateFormatter()
+            dataFormatter.dateFormat = "yyyy-MM-dd"
+            
+            for weatherData in forecastData.weatherDataList!{
+            
+                var dict:[String:String] = [:]
+                dict["temp"] = String(Int(weatherData.main!.temp!))
+                dict["min"] = String(Int(weatherData.main!.temp_min!))
+                dict["max"] = String(Int(weatherData.main!.temp_max!))
+                
+                let dateString = dataFormatter.string(from: weatherData.dt_text!)
+                
+                if let dayForeCast = self.arrayDayForeCast.filter({ $0.date == dateString}).first as? DayForeCast{
+                    dayForeCast.main.append(weatherData.main!)
+                }else{
+                    self.arrayDayForeCast.append(DayForeCast(date: dateString, main: [weatherData.main!], weatherData: weatherData))
+                }
+            }
+            
+            self.tableViewDayForeCast.reloadData()
+            
         }) { (error) in
             self.hideLoading()
             print(error.localizedDescription)
         }
+        
+        tableViewDayForeCast.dataSource = self
+        tableViewDayForeCast.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,13 +106,34 @@ extension ForeCastViewController : UICollectionViewDataSource {
     
 }
 
-extension ForeCastCollectionViewCell : UICollectionViewDelegateFlowLayout {
+
+extension ForeCastViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayDayForeCast.count
+    }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return CGSize(width: 100, height: 70)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DayForeCastCell", for: indexPath) as! DayForeCastTableCell
         
+        let foreCast = arrayDayForeCast[indexPath.row]
+        
+        cell.labelDayName.text = foreCast.date
+        
+        let weatherData = foreCast.weatherData
+        cell.imageForeCast.image = UIImage.init(named: weatherData.weather!.first!.main! + ".png")
+        
+        let main = foreCast.main.max(by: { $0.temp! > $1.temp! })
+        cell.labelDayTemp.text = String(Int(main!.temp!))
+        
+        return cell
+    }
+    
+}
+
+extension ForeCastViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

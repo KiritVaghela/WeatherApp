@@ -53,6 +53,8 @@
 		CBEB305F2177541600DA1A36 /* Low Chance of Showers.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB304A2177541600DA1A36 /* Low Chance of Showers.png */; };
 		CBEB30612177550300DA1A36 /* ForeCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB30602177550300DA1A36 /* ForeCastViewController.swift */; };
 		CBEB306321775CF100DA1A36 /* ForeCastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */; };
+		CBEE193C217882350001F70F /* DayForeCastTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE193B217882350001F70F /* DayForeCastTableCell.swift */; };
+		CBEE193E21788C160001F70F /* DayForeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE193D21788C160001F70F /* DayForeCast.swift */; };
 		CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AB21767939005FFF57 /* WeatherApiManager.swift */; };
 		CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AD21767DCF005FFF57 /* BaseReponse.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,8 @@
 		CBEB304A2177541600DA1A36 /* Low Chance of Showers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Low Chance of Showers.png"; sourceTree = "<group>"; };
 		CBEB30602177550300DA1A36 /* ForeCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastViewController.swift; sourceTree = "<group>"; };
 		CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBEE193B217882350001F70F /* DayForeCastTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForeCastTableCell.swift; sourceTree = "<group>"; };
+		CBEE193D21788C160001F70F /* DayForeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForeCast.swift; sourceTree = "<group>"; };
 		CBF480AB21767939005FFF57 /* WeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiManager.swift; sourceTree = "<group>"; };
 		CBF480AD21767DCF005FFF57 /* BaseReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReponse.swift; sourceTree = "<group>"; };
 		D12C842D3F4134E9C21F7C8F /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				CBA7567E217541DB001AEE14 /* Clouds.swift */,
 				CBF480AD21767DCF005FFF57 /* BaseReponse.swift */,
 				CBE251F32176A7CE005FD031 /* Location.swift */,
+				CBEE193D21788C160001F70F /* DayForeCast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				CBEB3033217744BE00DA1A36 /* CityListTableViewCell.swift */,
 				CBEB30602177550300DA1A36 /* ForeCastViewController.swift */,
 				CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */,
+				CBEE193B217882350001F70F /* DayForeCastTableCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				CBA7567D21754110001AEE14 /* Wind.swift in Sources */,
 				CBA7567B21753F53001AEE14 /* Main.swift in Sources */,
 				CBE251F92176ABCF005FD031 /* UIViewControllerExtension.swift in Sources */,
+				CBEE193E21788C160001F70F /* DayForeCast.swift in Sources */,
 				CBE251FB2176ADFA005FD031 /* BookmarkManager.swift in Sources */,
 				CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */,
 				CBE251F42176A7CE005FD031 /* Location.swift in Sources */,
@@ -526,6 +533,7 @@
 				CB9B04562174B0F7008F35D7 /* AppDelegate.swift in Sources */,
 				CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */,
 				CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */,
+				CBEE193C217882350001F70F /* DayForeCastTableCell.swift in Sources */,
 				CBE251EE21769596005FD031 /* FiveDayForeCastData.swift in Sources */,
 				CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */,
 				CBE251F0217696FF005FD031 /* City.swift in Sources */,

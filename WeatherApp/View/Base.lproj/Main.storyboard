@@ -190,16 +190,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNd-u0-OfW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="16.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-DR-tLO">
-                                                            <rect key="frame" x="0.0" y="16.5" width="50" height="17"/>
+                                                            <rect key="frame" x="0.0" y="23.5" width="50" height="23"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrJ-Oj-tmf">
-                                                            <rect key="frame" x="0.0" y="33.5" width="50" height="16.5"/>
+                                                            <rect key="frame" x="0.0" y="46.5" width="50" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -228,17 +228,80 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NaG-Xw-oZW">
+                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="RB1-pd-yQz">
+                                    <rect key="frame" x="0.0" y="87" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayForeCastCell" rowHeight="59" id="J8Q-Z9-0fC" customClass="DayForeCastTableCell" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J8Q-Z9-0fC" id="8Au-mW-Vnm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-DC-zoG">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="58.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cJ-Y5-70d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="58.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bca-uG-s3t">
+                                                            <rect key="frame" x="177.5" y="0.0" width="71" height="58.5"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-40-72R">
+                                                            <rect key="frame" x="248.5" y="0.0" width="106.5" height="58.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="WqF-40-72R" firstAttribute="width" secondItem="ljO-DC-zoG" secondAttribute="width" multiplier="0.3" id="2tB-E1-d9W"/>
+                                                        <constraint firstItem="6cJ-Y5-70d" firstAttribute="width" secondItem="ljO-DC-zoG" secondAttribute="width" multiplier="0.5" id="FG7-mx-7V2"/>
+                                                        <constraint firstItem="bca-uG-s3t" firstAttribute="width" secondItem="ljO-DC-zoG" secondAttribute="width" multiplier="0.2" id="K0I-Gv-Nyd"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ljO-DC-zoG" secondAttribute="bottom" id="0BL-DI-ZHb"/>
+                                                <constraint firstItem="ljO-DC-zoG" firstAttribute="top" secondItem="8Au-mW-Vnm" secondAttribute="top" id="G4m-hb-lfM"/>
+                                                <constraint firstAttribute="trailing" secondItem="ljO-DC-zoG" secondAttribute="trailing" constant="10" id="bsC-IN-CdW"/>
+                                                <constraint firstItem="ljO-DC-zoG" firstAttribute="leading" secondItem="8Au-mW-Vnm" secondAttribute="leading" constant="10" id="xbG-gG-t55"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="imageForeCast" destination="bca-uG-s3t" id="tXf-HZ-dee"/>
+                                            <outlet property="labelDayName" destination="6cJ-Y5-70d" id="pDM-Ey-lps"/>
+                                            <outlet property="labelDayTemp" destination="WqF-40-72R" id="V5o-0v-wfn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NaG-Xw-oZW" firstAttribute="trailing" secondItem="I6y-pL-IsY" secondAttribute="trailing" id="4qT-CJ-OYe"/>
                             <constraint firstItem="Yn9-rn-IC2" firstAttribute="trailing" secondItem="I6y-pL-IsY" secondAttribute="trailing" id="LPd-aH-iyR"/>
+                            <constraint firstItem="NaG-Xw-oZW" firstAttribute="bottom" secondItem="I6y-pL-IsY" secondAttribute="bottom" id="W1Y-fb-hGL"/>
+                            <constraint firstItem="NaG-Xw-oZW" firstAttribute="leading" secondItem="I6y-pL-IsY" secondAttribute="leading" id="Wv1-fb-JZy"/>
                             <constraint firstItem="Yn9-rn-IC2" firstAttribute="leading" secondItem="I6y-pL-IsY" secondAttribute="leading" id="fmg-7d-e9w"/>
+                            <constraint firstItem="NaG-Xw-oZW" firstAttribute="top" secondItem="Yn9-rn-IC2" secondAttribute="bottom" id="l8F-to-DbT"/>
                             <constraint firstItem="Yn9-rn-IC2" firstAttribute="top" secondItem="I6y-pL-IsY" secondAttribute="top" id="rbg-Pa-0et"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I6y-pL-IsY"/>
                     </view>
                     <connections>
                         <outlet property="collectionViewForeCast" destination="Yn9-rn-IC2" id="nkc-eH-erC"/>
+                        <outlet property="tableViewDayForeCast" destination="NaG-Xw-oZW" id="riX-RL-B5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-Hs-0T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
