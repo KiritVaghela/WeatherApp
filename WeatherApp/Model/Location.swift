@@ -9,10 +9,17 @@
 import Foundation
 import CoreLocation
 
-struct Location: Codable {
+class Location: Codable {
     
     var name:String
     var latitude:Double
     var longitude:Double
     
+    var weatherData:WeatherData?
+    
+    init(name:String, latitude:Double, longitude:Double) {
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }

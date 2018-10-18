@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class BaseResponse: Mappable {
+class BaseResponse: Mappable, Codable {
     
     var statusCode:Int?
     var responseMessage: String?

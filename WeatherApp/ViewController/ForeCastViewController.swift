@@ -11,7 +11,6 @@ import UIKit
 class ForeCastViewController: UIViewController {
 
     var location:Location!
-    var weatherData:WeatherData!
     var foreCastData: FiveDayForeCastData?
     
     @IBOutlet weak var collectionViewForeCast: UICollectionView!

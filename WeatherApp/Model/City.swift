@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class City: Mappable {
+class City: Mappable, Codable {
     
     var id:Int?
     var name:String?

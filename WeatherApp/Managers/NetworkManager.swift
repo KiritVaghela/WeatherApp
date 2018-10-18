@@ -36,9 +36,7 @@ class NetworkManager {
     
     private func httpRequestBuilder(urlString: String, requestMethod:HTTPMethod, params:[String:Any]) -> DataRequest {
         
-        let newUrl = requestMethod == .get ? queryString(urlString: urlString, params: params) : urlString
-        
-        print("\(Date()) Url: \(newUrl)")
+        print("\(Date()) Url: \(urlString)")
         print("Params: \(params)")
         
         
@@ -46,7 +44,7 @@ class NetworkManager {
         var newParams = params
         newParams["appid"] = WEATHER_API_KEY
         
-        let httpRequest = Alamofire.request(newUrl,
+        let httpRequest = Alamofire.request(urlString,
                                                  method: requestMethod,
                                                  parameters: newParams,
                                                  encoding: requestMethod == .get ? URLEncoding.default : JSONEncoding.default,
@@ -147,15 +145,5 @@ class NetworkManager {
         }else{
             failure(error)
         }
-    }
-
-    private func queryString(urlString:String, params:[String: Any]) -> String {
-        
-        let queryItems = params.map({ URLQueryItem(name: $0.key, value: $0.value as? String) })
-        
-        var urlComps = URLComponents(string: urlString)
-        urlComps?.queryItems = queryItems
-        
-        return urlComps?.url?.absoluteString ?? ""
     }
 }

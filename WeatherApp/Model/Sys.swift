@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Sys: Mappable {
+class Sys: Mappable, Codable {
     
     var message:Float?
     var sunrise:Int64?

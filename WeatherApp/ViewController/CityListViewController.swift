@@ -22,6 +22,7 @@ class CityListViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("Places : \(BookmarkManager.shared.getLoctions().count)")
         
+        WeatherApiManager.shared.unitType = .imperial
         setTempUnitType()
         
         tableViewCityList.dataSource = self
@@ -71,12 +72,29 @@ class CityListViewController: UIViewController {
     
     @IBAction func btnCelciusTapped(_ sender: Any) {
     
+        if WeatherApiManager.shared.unitType == .metric {
+            return
+        }
+        
+        for location in BookmarkManager.shared.getLoctions() {
+            location.weatherData = nil
+        }
+
         WeatherApiManager.shared.unitType = .metric
         self.setTempUnitType()
         self.tableViewCityList.reloadData()
     }
     
     @IBAction func btnFahrenheitTapped(_ sender: Any) {
+        
+        if WeatherApiManager.shared.unitType == .imperial {
+            return
+        }
+       
+        for location in BookmarkManager.shared.getLoctions() {
+            location.weatherData = nil
+        }
+        
         WeatherApiManager.shared.unitType = .imperial
         self.setTempUnitType()
         self.tableViewCityList.reloadData()
@@ -104,14 +122,14 @@ extension CityListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityListTableViewCell
-            
+        
         cell.location = BookmarkManager.shared.getLoctions()[indexPath.row]
         
-        if cell.weatherData == nil {
+        if cell.location?.weatherData == nil {
             if let lat = cell.location?.latitude, let lng = cell.location?.longitude {
                 WeatherApiManager.shared.getWeatherData(forLatitude: "\(lat)", longitude: "\(lng)", success: { (weatherData) in
                     
-                    cell.weatherData = weatherData
+                    cell.location?.weatherData = weatherData
                     
                     cell.updateUI()
                     
@@ -135,7 +153,7 @@ extension CityListViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableViewCityList.cellForRow(at: indexPath) as? CityListTableViewCell, let _ = cell.weatherData {
+        if let _ = BookmarkManager.shared.getLoctions()[indexPath.row].weatherData {
             self.performSegue(withIdentifier: "toForeCastScreen", sender: indexPath)
         }
     }
@@ -153,8 +171,6 @@ extension CityListViewController {
                 let location = BookmarkManager.shared.getLoctions()[indexPath.row]
                 if let forecaseScreen = segue.destination as? ForeCastViewController {
                     forecaseScreen.location = location
-                    let cell = tableViewCityList.cellForRow(at: indexPath) as! CityListTableViewCell
-                    forecaseScreen.weatherData = cell.weatherData
                 }
             }
         }

@@ -14,7 +14,6 @@ class CityListTableViewCell: UITableViewCell {
     @IBOutlet weak var labelTemp: UILabel!
     
     var location:Location?
-    var weatherData:WeatherData?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +27,7 @@ class CityListTableViewCell: UITableViewCell {
     }
     
     func setWeatherData(weatherData:WeatherData) {
-        self.weatherData = weatherData
+        self.location?.weatherData = weatherData
     }
     
     func updateUI() {
@@ -36,7 +35,7 @@ class CityListTableViewCell: UITableViewCell {
             self.labelCityName.text = city
         }
         
-        if let main = weatherData?.main, let _ = main.temp {
+        if let main = location?.weatherData?.main, let _ = main.temp {
             self.labelTemp.text = "\(main.getTempeture())°"
         }
     }

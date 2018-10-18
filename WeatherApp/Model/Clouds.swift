@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Clouds: Mappable {
+class Clouds: Mappable, Codable {
     
     var all:Int?
     

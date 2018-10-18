@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Coord: Mappable {
+class Coord: Mappable, Codable {
 
     var lon:Int64?
     var lat:Int64?

@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Wind: Mappable {
+class Wind: Mappable, Codable {
     
     var speed:Float?
     var deg:Float?

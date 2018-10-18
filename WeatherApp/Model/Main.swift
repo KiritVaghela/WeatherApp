@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Main: Mappable {
+class Main: Mappable, Codable {
     
     var temp:Float?
     var pressure:Float?

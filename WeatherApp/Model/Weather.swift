@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Weather: Mappable {
+class Weather: Mappable, Codable {
     
     var id:Int?
     var main:String?
