@@ -37,15 +37,7 @@ class Main: Mappable {
         temp_kf         <- map["temp_kf"]
     }
     
-    // return celsius
-    func getCelsius() -> String {
+    func getTempeture() -> String {
         return String(Int(temp!))
     }
-    
-    // return fahrenheit
-    func getFahrenheit() -> String {
-        let faren = (temp! * 9/5) + 32
-        return String(Int(faren))
-    }
-    
 }

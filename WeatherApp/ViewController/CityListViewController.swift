@@ -15,18 +15,37 @@ class CityListViewController: UIViewController {
     @IBOutlet weak var btnCelcius: UIButton!
     @IBOutlet weak var btnFahrenheit: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         print("Places : \(BookmarkManager.shared.getLoctions().count)")
         
-        self.btnCelcius.isSelected = true
+        setTempUnitType()
         
         tableViewCityList.dataSource = self
         tableViewCityList.delegate = self
     }
 
+    func setTempUnitType() {
+        switch WeatherApiManager.shared.unitType {
+            
+        case .kelvin:
+            btnCelcius.isSelected = false
+            btnFahrenheit.isSelected = false
+            
+        case .metric:
+            btnCelcius.isSelected = true
+            btnFahrenheit.isSelected = false
+            
+        case .imperial:
+            btnFahrenheit.isSelected = true
+            btnCelcius.isSelected = false
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,16 +70,15 @@ class CityListViewController: UIViewController {
     }
     
     @IBAction func btnCelciusTapped(_ sender: Any) {
-        self.btnFahrenheit.isSelected = false
-        self.btnCelcius.isSelected = true
-        
+    
+        WeatherApiManager.shared.unitType = .metric
+        self.setTempUnitType()
         self.tableViewCityList.reloadData()
     }
     
     @IBAction func btnFahrenheitTapped(_ sender: Any) {
-        self.btnFahrenheit.isSelected = true
-        self.btnCelcius.isSelected = false
-        
+        WeatherApiManager.shared.unitType = .imperial
+        self.setTempUnitType()
         self.tableViewCityList.reloadData()
     }
     
@@ -88,7 +106,6 @@ extension CityListViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityListTableViewCell
             
         cell.location = BookmarkManager.shared.getLoctions()[indexPath.row]
-        cell.showFahrenheit = self.btnFahrenheit.isSelected
         
         if cell.weatherData == nil {
             if let lat = cell.location?.latitude, let lng = cell.location?.longitude {
@@ -136,7 +153,6 @@ extension CityListViewController {
                 let location = BookmarkManager.shared.getLoctions()[indexPath.row]
                 if let forecaseScreen = segue.destination as? ForeCastViewController {
                     forecaseScreen.location = location
-                    forecaseScreen.showFarhreneit = self.btnFahrenheit.isSelected
                     let cell = tableViewCityList.cellForRow(at: indexPath) as! CityListTableViewCell
                     forecaseScreen.weatherData = cell.weatherData
                 }

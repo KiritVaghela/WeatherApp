@@ -8,10 +8,20 @@
 
 import Foundation
 
+
+enum TemperatureUnitType:String {
+    case kelvin = "kelvin" // default
+    case metric = "metric" // celcuis
+    case imperial = "Imperial" // Fahrenheit
+}
+
 class WeatherApiManager {
     
     // shared instance
     static let shared = WeatherApiManager()
+    
+    // temp unit type
+    var unitType: TemperatureUnitType = .metric
     
     // private init method
     private init(){
@@ -19,12 +29,12 @@ class WeatherApiManager {
     }
     
     // get weather data for provided latitude and longitude
-    func getWeatherData(forLatitude lat:String, longitude lng:String, unitType units:String = "metric", success:@escaping (WeatherData) -> Void, failure:@escaping (Error) -> Void) {
+    func getWeatherData(forLatitude lat:String, longitude lng:String, success:@escaping (WeatherData) -> Void, failure:@escaping (Error) -> Void) {
         
         var params = [String:Any]()
         params["lat"] = lat
         params["lon"] = lng
-        params["units"] = units
+        params["units"] = WeatherApiManager.shared.unitType.rawValue
         
         NetworkManager.shared.makeObjectRequest(forClass: WeatherData.self, requestMethod: httpGet, forApi: "weather", params: params, success: { (response) in
             
@@ -43,12 +53,12 @@ class WeatherApiManager {
         }
     }
     
-    func getFiveDayForeCast(forLatitude lat:String, longitude lng:String, unitType units:String = "metric", success:@escaping (FiveDayForeCastData) -> Void, failure:@escaping (Error) -> Void) {
+    func getFiveDayForeCast(forLatitude lat:String, longitude lng:String, success:@escaping (FiveDayForeCastData) -> Void, failure:@escaping (Error) -> Void) {
         
         var params = [String:Any]()
         params["lat"] = lat
         params["lon"] = lng
-        params["units"] = units
+        params["units"] = WeatherApiManager.shared.unitType.rawValue
         
         NetworkManager.shared.makeObjectRequest(forClass: FiveDayForeCastData.self, requestMethod: httpGet, forApi: "forecast", params: params, success: { (response) in
             
@@ -67,6 +77,4 @@ class WeatherApiManager {
         }
         
     }
-    
-    
 }

@@ -11,7 +11,6 @@ import UIKit
 class ForeCastViewController: UIViewController {
 
     var location:Location!
-    var showFarhreneit:Bool!
     var weatherData:WeatherData!
     var foreCastData: FiveDayForeCastData?
     
@@ -74,7 +73,7 @@ extension ForeCastViewController : UICollectionViewDataSource {
         
         let forecast = foreCastData!.weatherDataList![indexPath.row]
         
-        cell.setForeCast(data: forecast, showFahreneit: showFarhreneit)
+        cell.setForeCast(data: forecast)
         
         return cell
     }

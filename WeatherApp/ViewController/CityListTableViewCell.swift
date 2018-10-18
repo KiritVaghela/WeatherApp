@@ -15,7 +15,6 @@ class CityListTableViewCell: UITableViewCell {
     
     var location:Location?
     var weatherData:WeatherData?
-    var showFahrenheit:Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,11 +37,7 @@ class CityListTableViewCell: UITableViewCell {
         }
         
         if let main = weatherData?.main, let _ = main.temp {
-            if showFahrenheit {
-                self.labelTemp.text = "\(main.getFahrenheit())°"
-            }else{
-                self.labelTemp.text = "\(main.getCelsius())°"
-            }
+            self.labelTemp.text = "\(main.getTempeture())°"
         }
     }
 
