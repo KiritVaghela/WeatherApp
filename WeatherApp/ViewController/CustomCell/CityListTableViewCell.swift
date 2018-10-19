@@ -36,7 +36,7 @@ class CityListTableViewCell: UITableViewCell {
         }
         
         if let main = location?.weatherData?.main, let _ = main.temp {
-            self.labelTemp.text = "\(main.getTempeture())°"
+            self.labelTemp.text = main.getTempetureString()
         }
     }
 

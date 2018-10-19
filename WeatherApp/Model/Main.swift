@@ -37,7 +37,29 @@ class Main: Mappable, Codable {
         temp_kf         <- map["temp_kf"]
     }
     
-    func getTempeture() -> String {
-        return String(Int(temp!))
+    func getMinTempeture() -> Int {
+        return Int(temp_min ?? 0)
+    }
+    
+    func getMaxTempeture() -> Int {
+        return Int(temp_max ?? 0)
+    }
+    
+    func getMinTempetureString() -> String {
+        return "\(getMinTempeture())°"
+    }
+    
+    func getMaxTempetureString() -> String {
+        return "\(getMaxTempeture())°"
+    }
+    
+    // return tempeture
+    func getTempeture() -> Int {
+        return Int(temp ?? 0)
+    }
+    
+    // return tempeture with ° sign
+    func getTempetureString() -> String {
+        return "\(getTempeture())°"
     }
 }

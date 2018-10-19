@@ -21,7 +21,21 @@ class WeatherApiManager {
     static let shared = WeatherApiManager()
     
     // temp unit type
-    var unitType: TemperatureUnitType = .metric
+    var unitType: TemperatureUnitType {
+        get{
+            if let unitString = UserDefaults.standard.string(forKey: "unitType"){
+                if let unitType = TemperatureUnitType.init(rawValue: unitString) {
+                    return unitType
+                }
+            }
+            
+            return .metric // default
+        }
+        set{
+            UserDefaults.standard.set(newValue.rawValue, forKey: "unitType")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     // private init method
     private init(){

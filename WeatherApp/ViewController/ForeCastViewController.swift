@@ -14,17 +14,82 @@ class ForeCastViewController: UIViewController {
     var foreCastData: FiveDayForeCastData?
     var arrayDayForeCast:[DayForeCast] = Array<DayForeCast>()
     
+    
+    @IBOutlet weak var labelCityName: UILabel!
+    @IBOutlet weak var labelCondtion: UILabel!
+    
     @IBOutlet weak var collectionViewForeCast: UICollectionView!
     @IBOutlet weak var tableViewDayForeCast: UITableView!
+    @IBOutlet weak var labelTempeture: UILabel!
+    
+
+    @IBOutlet weak var labelSunrise: UILabel!
+    @IBOutlet weak var labelSunset: UILabel!
+    @IBOutlet weak var labelRainChance: UILabel!
+    @IBOutlet weak var labelHumidity: UILabel!
+    @IBOutlet weak var labelWindSpeed: UILabel!
+    @IBOutlet weak var labelPressure: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = location.name
+        self.title = "5 Day Forecast"
         
+        // set city name label
+        self.labelCityName.text = location.name
+        
+        // set weather condtion label
+        self.labelCondtion.text = location.weatherData?.weather?.first?.main ?? ""
+        
+        // set tepmeture
+        self.labelTempeture.text = String(Int((location.weatherData?.main?.temp)!))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mma"
+        
+        // set footer data like sunrise, sunset, rain chance, humidity
+        // sunrise
+        if let sunriseDate = location.weatherData?.sys?.sunrise {
+            self.labelSunrise.text =  dateFormatter.string(from: sunriseDate)
+        }
+        
+        // sunset
+        if let sunsetDate = location.weatherData?.sys?.sunset {
+            self.labelSunset.text = dateFormatter.string(from: sunsetDate)
+        }
+        
+        //chance of rain
+        self.labelRainChance.text = "\(location.weatherData?.clouds?.all ?? 0)%"
+        
+        // humidity
+        self.labelHumidity.text = "\(location.weatherData?.main?.humidity ?? 0)%"
+        
+        // wind speed
+        self.labelWindSpeed.text = String(format: "%.1fkm/hr", location.weatherData?.wind?.speed ?? 0)
+        
+        // pressure
+        self.labelPressure.text = "\(Int(location.weatherData?.main?.pressure ?? 0)) hPa"
+        
+        // dataset and delegate
         collectionViewForeCast.dataSource = self
+        tableViewDayForeCast.dataSource = self
+        tableViewDayForeCast.delegate = self
         
+        // get forecast for current city
+        getFiveDayForecast()
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    /*
+     // Get Five Day forcast
+     */
+    fileprivate func getFiveDayForecast() {
         showLoading()
         WeatherApiManager.shared.getFiveDayForeCast(forLatitude: "\(location.latitude)", longitude: "\(location.longitude)", success: { (forecastData) in
             self.hideLoading()
@@ -37,15 +102,10 @@ class ForeCastViewController: UIViewController {
             dataFormatter.dateFormat = "yyyy-MM-dd"
             
             for weatherData in forecastData.weatherDataList!{
-            
-                var dict:[String:String] = [:]
-                dict["temp"] = String(Int(weatherData.main!.temp!))
-                dict["min"] = String(Int(weatherData.main!.temp_min!))
-                dict["max"] = String(Int(weatherData.main!.temp_max!))
                 
                 let dateString = dataFormatter.string(from: weatherData.dt_text!)
                 
-                if let dayForeCast = self.arrayDayForeCast.filter({ $0.date == dateString}).first as? DayForeCast{
+                if let dayForeCast = self.arrayDayForeCast.filter({ $0.date == dateString}).first {
                     dayForeCast.main.append(weatherData.main!)
                 }else{
                     self.arrayDayForeCast.append(DayForeCast(date: dateString, main: [weatherData.main!], weatherData: weatherData))
@@ -54,20 +114,12 @@ class ForeCastViewController: UIViewController {
             
             self.tableViewDayForeCast.reloadData()
             
+            
         }) { (error) in
             self.hideLoading()
             print(error.localizedDescription)
         }
-        
-        tableViewDayForeCast.dataSource = self
-        tableViewDayForeCast.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -116,15 +168,11 @@ extension ForeCastViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayForeCastCell", for: indexPath) as! DayForeCastTableCell
         
+        // get day forcast
         let foreCast = arrayDayForeCast[indexPath.row]
         
-        cell.labelDayName.text = foreCast.date
-        
-        let weatherData = foreCast.weatherData
-        cell.imageForeCast.image = UIImage.init(named: weatherData.weather!.first!.main! + ".png")
-        
-        let main = foreCast.main.max(by: { $0.temp! > $1.temp! })
-        cell.labelDayTemp.text = String(Int(main!.temp!))
+        // set ui
+        cell.setWeatherDate(for: foreCast)
         
         return cell
     }
@@ -134,6 +182,6 @@ extension ForeCastViewController: UITableViewDataSource {
 extension ForeCastViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 55
     }
 }

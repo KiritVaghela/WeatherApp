@@ -22,7 +22,6 @@ class CityListViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("Places : \(BookmarkManager.shared.getLoctions().count)")
         
-        WeatherApiManager.shared.unitType = .imperial
         setTempUnitType()
         
         tableViewCityList.dataSource = self

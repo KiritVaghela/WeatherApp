@@ -17,6 +17,7 @@ class ForeCastCollectionViewCell: UICollectionViewCell {
     
     func setForeCast(data:WeatherData) {
         
+        // date formatter
         let dataFormatter = DateFormatter()
         dataFormatter.dateFormat = "h:mma"
         
@@ -27,6 +28,6 @@ class ForeCastCollectionViewCell: UICollectionViewCell {
         self.imageForecast.image = UIImage.init(named: data.weather!.first!.main! + ".png")
         
         // set tempeture
-        self.labelTemp.text = "\(data.main!.getTempeture())°"
+        self.labelTemp.text = data.main!.getTempetureString()
     }
 }

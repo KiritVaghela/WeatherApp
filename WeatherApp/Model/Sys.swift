@@ -12,8 +12,8 @@ import ObjectMapper
 class Sys: Mappable, Codable {
     
     var message:Float?
-    var sunrise:Int64?
-    var sunset:Int64?
+    var sunrise:Date?
+    var sunset:Date?
     var pod:String?
     
     //MARK: - Object Mapper
@@ -24,8 +24,8 @@ class Sys: Mappable, Codable {
     //mapping the json keys with properties
     public func mapping(map: Map) {
         message   <- map["message"]
-        sunrise   <- map["sunrise"]
-        sunset    <- map["sunrise"]
+        sunrise   <- (map["sunrise"],DateTransform())
+        sunset    <- (map["sunset"],DateTransform())
         pod       <- map["pod"]
     }
     

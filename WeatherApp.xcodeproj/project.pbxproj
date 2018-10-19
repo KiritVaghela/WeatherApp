@@ -21,6 +21,9 @@
 		CBA7567D21754110001AEE14 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7567C21754110001AEE14 /* Wind.swift */; };
 		CBA7567F217541DB001AEE14 /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7567E217541DB001AEE14 /* Clouds.swift */; };
 		CBA7568121754267001AEE14 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7568021754267001AEE14 /* Sys.swift */; };
+		CBB0DD492179AAB600A505CF /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB0DD462179AAB600A505CF /* CityListTableViewCell.swift */; };
+		CBB0DD4A2179AAB600A505CF /* ForeCastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB0DD472179AAB600A505CF /* ForeCastCollectionViewCell.swift */; };
+		CBB0DD4B2179AAB600A505CF /* DayForeCastTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB0DD482179AAB600A505CF /* DayForeCastTableCell.swift */; };
 		CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E32174CA27009A70E5 /* CityListViewController.swift */; };
 		CBC277E62174CC29009A70E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E52174CC29009A70E5 /* Constants.swift */; };
 		CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC277E82174CFE6009A70E5 /* NetworkManager.swift */; };
@@ -29,7 +32,6 @@
 		CBE251F42176A7CE005FD031 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE251F32176A7CE005FD031 /* Location.swift */; };
 		CBE251F92176ABCF005FD031 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE251F82176ABCF005FD031 /* UIViewControllerExtension.swift */; };
 		CBE251FB2176ADFA005FD031 /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE251FA2176ADFA005FD031 /* BookmarkManager.swift */; };
-		CBEB3034217744BE00DA1A36 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB3033217744BE00DA1A36 /* CityListTableViewCell.swift */; };
 		CBEB304B2177541600DA1A36 /* Smog.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB30362177541600DA1A36 /* Smog.png */; };
 		CBEB304C2177541600DA1A36 /* Fog.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB30372177541600DA1A36 /* Fog.png */; };
 		CBEB304D2177541600DA1A36 /* Partly Cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB30382177541600DA1A36 /* Partly Cloudy.png */; };
@@ -52,8 +54,6 @@
 		CBEB305E2177541600DA1A36 /* Rain.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB30492177541600DA1A36 /* Rain.png */; };
 		CBEB305F2177541600DA1A36 /* Low Chance of Showers.png in Resources */ = {isa = PBXBuildFile; fileRef = CBEB304A2177541600DA1A36 /* Low Chance of Showers.png */; };
 		CBEB30612177550300DA1A36 /* ForeCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB30602177550300DA1A36 /* ForeCastViewController.swift */; };
-		CBEB306321775CF100DA1A36 /* ForeCastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */; };
-		CBEE193C217882350001F70F /* DayForeCastTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE193B217882350001F70F /* DayForeCastTableCell.swift */; };
 		CBEE193E21788C160001F70F /* DayForeCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE193D21788C160001F70F /* DayForeCast.swift */; };
 		CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AB21767939005FFF57 /* WeatherApiManager.swift */; };
 		CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF480AD21767DCF005FFF57 /* BaseReponse.swift */; };
@@ -90,6 +90,9 @@
 		CBA7567C21754110001AEE14 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		CBA7567E217541DB001AEE14 /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		CBA7568021754267001AEE14 /* Sys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
+		CBB0DD462179AAB600A505CF /* CityListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
+		CBB0DD472179AAB600A505CF /* ForeCastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForeCastCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBB0DD482179AAB600A505CF /* DayForeCastTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayForeCastTableCell.swift; sourceTree = "<group>"; };
 		CBC277E32174CA27009A70E5 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		CBC277E52174CC29009A70E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CBC277E82174CFE6009A70E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -98,7 +101,6 @@
 		CBE251F32176A7CE005FD031 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CBE251F82176ABCF005FD031 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CBE251FA2176ADFA005FD031 /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
-		CBEB3033217744BE00DA1A36 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		CBEB30362177541600DA1A36 /* Smog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smog.png; sourceTree = "<group>"; };
 		CBEB30372177541600DA1A36 /* Fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fog.png; sourceTree = "<group>"; };
 		CBEB30382177541600DA1A36 /* Partly Cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Partly Cloudy.png"; sourceTree = "<group>"; };
@@ -121,8 +123,6 @@
 		CBEB30492177541600DA1A36 /* Rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rain.png; sourceTree = "<group>"; };
 		CBEB304A2177541600DA1A36 /* Low Chance of Showers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Low Chance of Showers.png"; sourceTree = "<group>"; };
 		CBEB30602177550300DA1A36 /* ForeCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastViewController.swift; sourceTree = "<group>"; };
-		CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeCastCollectionViewCell.swift; sourceTree = "<group>"; };
-		CBEE193B217882350001F70F /* DayForeCastTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForeCastTableCell.swift; sourceTree = "<group>"; };
 		CBEE193D21788C160001F70F /* DayForeCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForeCast.swift; sourceTree = "<group>"; };
 		CBF480AB21767939005FFF57 /* WeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiManager.swift; sourceTree = "<group>"; };
 		CBF480AD21767DCF005FFF57 /* BaseReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReponse.swift; sourceTree = "<group>"; };
@@ -271,13 +271,21 @@
 		CB9B04542174B0F7008F35D7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CBB0DD452179AAB600A505CF /* CustomCell */,
 				CBC277E32174CA27009A70E5 /* CityListViewController.swift */,
-				CBEB3033217744BE00DA1A36 /* CityListTableViewCell.swift */,
 				CBEB30602177550300DA1A36 /* ForeCastViewController.swift */,
-				CBEB306221775CF100DA1A36 /* ForeCastCollectionViewCell.swift */,
-				CBEE193B217882350001F70F /* DayForeCastTableCell.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CBB0DD452179AAB600A505CF /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBB0DD462179AAB600A505CF /* CityListTableViewCell.swift */,
+				CBB0DD472179AAB600A505CF /* ForeCastCollectionViewCell.swift */,
+				CBB0DD482179AAB600A505CF /* DayForeCastTableCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		CBC277E72174CFDA009A70E5 /* Managers */ = {
@@ -529,17 +537,17 @@
 				CBC277E92174CFE6009A70E5 /* NetworkManager.swift in Sources */,
 				CBE251F42176A7CE005FD031 /* Location.swift in Sources */,
 				CBA7568121754267001AEE14 /* Sys.swift in Sources */,
-				CBEB306321775CF100DA1A36 /* ForeCastCollectionViewCell.swift in Sources */,
 				CB9B04562174B0F7008F35D7 /* AppDelegate.swift in Sources */,
 				CBF480AC21767939005FFF57 /* WeatherApiManager.swift in Sources */,
 				CBC277E42174CA27009A70E5 /* CityListViewController.swift in Sources */,
-				CBEE193C217882350001F70F /* DayForeCastTableCell.swift in Sources */,
 				CBE251EE21769596005FD031 /* FiveDayForeCastData.swift in Sources */,
 				CBF480AE21767DCF005FFF57 /* BaseReponse.swift in Sources */,
+				CBB0DD4B2179AAB600A505CF /* DayForeCastTableCell.swift in Sources */,
 				CBE251F0217696FF005FD031 /* City.swift in Sources */,
 				CB6D116F2175280400B39C8D /* WeatherData.swift in Sources */,
-				CBEB3034217744BE00DA1A36 /* CityListTableViewCell.swift in Sources */,
 				CBC277E62174CC29009A70E5 /* Constants.swift in Sources */,
+				CBB0DD492179AAB600A505CF /* CityListTableViewCell.swift in Sources */,
+				CBB0DD4A2179AAB600A505CF /* ForeCastCollectionViewCell.swift in Sources */,
 				CBA7567F217541DB001AEE14 /* Clouds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
