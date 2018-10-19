@@ -26,6 +26,7 @@ class CityListViewController: UIViewController {
         
         tableViewCityList.dataSource = self
         tableViewCityList.delegate = self
+        
     }
 
     func setTempUnitType() {
@@ -113,6 +114,30 @@ class CityListViewController: UIViewController {
 }
 
 extension CityListViewController : UITableViewDataSource {
+    
+    // allow row edit for delete functionallity
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let locations = BookmarkManager.shared.getLoctions()
+            
+            //1. get location
+            let currentLocation = locations[indexPath.row]
+            
+            //2. remove from list
+            BookmarkManager.shared.removeLocation(location: currentLocation)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BookmarkManager.shared.getLoctions().count

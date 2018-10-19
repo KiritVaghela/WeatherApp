@@ -33,7 +33,25 @@ class BookmarkManager {
         saveLocationList()
     }
     
+    func removeLocation(location:Location) {
+
+        let index = bookmarkLocationList.index(where: { (loc:Location) -> Bool in
+            return (loc.latitude == location.latitude && loc.longitude == location.longitude)
+        })
+    
+        if let index = index {
+            bookmarkLocationList.remove(at: index)
+            saveLocationList()
+        }
+    }
+    
     private func saveLocationList(){
+        
+        // FIXME: App crash while saving location with weather data
+        for location in bookmarkLocationList {
+            location.weatherData = nil
+        }
+        
         if let locationData = try? JSONEncoder().encode(bookmarkLocationList) {
             UserDefaults.standard.set(locationData, forKey: "bookmarkLocations")
             UserDefaults.standard.synchronize()
