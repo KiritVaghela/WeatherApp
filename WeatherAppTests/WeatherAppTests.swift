@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import WeatherApp
 
 class WeatherAppTests: XCTestCase {
@@ -21,16 +22,46 @@ class WeatherAppTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTempetureStringFunc(){
+        
+        // given
+        let main = Main(JSON: [:])
+        main?.temp = 100
+        
+         //when
+        let tempString = main?.getTempetureString()
+        
+         //than
+        XCTAssert(tempString! == "100°", "Error : Give: \(main!.temp!), return : \(tempString ?? "" )")
+        
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testMinTemparetureStringFunc() {
+        
+        // given
+        let main = Main(JSON: [:])
+        main?.temp_min = 50
+        
+        //when
+        let minTempString = main?.getMinTempetureString()
+        
+        //than
+        XCTAssert(minTempString! == "50°", "Error : Give: \(main!.temp_min!), return : \(minTempString ?? "" )")
+        
+    }
+    
+    func testMaxTemparetureStringFunc() {
+        
+        // given
+        let main = Main(JSON: [:])
+        main?.temp_max = 150
+        
+        //when
+        let maxTempString = main?.getMaxTempetureString()
+        
+        //than
+        XCTAssert(maxTempString! == "150°", "Error : Give: \(main!.temp_max!), return : \(maxTempString ?? "" )")
+        
     }
     
 }
