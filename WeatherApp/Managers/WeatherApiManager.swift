@@ -58,7 +58,7 @@ class WeatherApiManager {
             if response.response?.statusCode == 200 {
                 success(responseObject)
             }else{
-                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
+                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage ?? "No response"]))
             }
             
         }) { (error) in
@@ -82,7 +82,7 @@ class WeatherApiManager {
             if response.response?.statusCode == 200 {
                 success(responseObject)
             }else{
-                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage]))
+                failure(NSError(domain: keyDomain, code: responseObject.statusCode! , userInfo: [NSLocalizedDescriptionKey : responseObject.responseMessage ?? "No response"]))
             }
             
         }) { (error) in
