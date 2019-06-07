@@ -73,6 +73,7 @@ class ForeCastViewController: UIViewController {
         
         // dataset and delegate
         collectionViewForeCast.dataSource = self
+        collectionViewForeCast.delegate = self
         tableViewDayForeCast.dataSource = self
         tableViewDayForeCast.delegate = self
         
@@ -156,6 +157,13 @@ extension ForeCastViewController : UICollectionViewDataSource {
     }
     
     
+}
+
+extension ForeCastViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: collectionViewForeCast.frame.height)
+    }
 }
 
 
